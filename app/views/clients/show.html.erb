@@ -1,0 +1,45 @@
+<p style="color: green"><%= notice %></p>
+
+<table class="table table-bordered text-center">
+  <thead class="bg-primary text-white">
+    <tr>
+      <th>Nombre</th>
+      <th>Teléfono</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td><%= @client.name %> </td>
+      <td><%= @client.phone_number %> </td> 
+      <td><%= @client.email %></td>
+    </tr>
+  </tbody>
+
+</table>
+
+<table class="table table-bordered text-center">
+  <thead class="bg-primary text-white">
+    <tr>
+      <th>Nombre</th>
+      <th>Altura Máx</th>
+      <th>Peso Máx</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pets.each do |pet| %>
+      <tr>
+        <td><%= pet.name %> </td>
+        <td><%= pet.max_height %> </td>
+        <td><%= pet.max_weight %> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Editar', edit_client_path(@client) %> |
+<%= link_to 'Volver', clients_path %>
+<%= button_to "Eliminar", @client, method: :delete %>
+</div>

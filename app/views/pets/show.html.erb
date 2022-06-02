@@ -1,0 +1,46 @@
+<p style="color: green"><%= notice %></p>
+
+
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @pet.name %>
+</p>
+
+<p>
+  <strong>Raza:</strong>
+  <%= @pet.race %>
+</p>
+
+<p>
+  <strong>Fecha de Nacimiento:</strong>
+  <%= @pet.birthdate %>
+</p>
+
+
+<table class="table table-bordered text-center">
+  <thead>
+    <tr>
+      <th>Peso promedio</th>
+      <th>Altura promedio</th>
+      <th>Peso Máximo</th>
+      <th>Altura Máxima</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td><%= @pet.avg_weight %></td>
+      <td><%= @pet.avg_height %></td>
+      <td><%= @pet.max_weight %></td>
+      <td><%= @pet.max_height%></td>
+    </tr>
+  </tbody>
+</table>
+
+<div>
+  <%= link_to "Editar", edit_pet_path(@pet) %> |
+  <%= link_to "Volver a mascotas", pets_path %>
+
+  <%= button_to "Eliminar", @pet, method: :delete, data: { confirm: 'Está seguro?' } %>
+</div>

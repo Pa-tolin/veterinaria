@@ -1,0 +1,26 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @pet_history %>
+
+<p>
+  <strong>Peso:</strong>
+  <%= @pet_history.weight %>
+</p>
+
+<p>
+  <strong>Altura:</strong>
+  <%= @pet_history.heigth %>
+</p>
+
+<p>
+  <strong>Descripción:</strong>
+  <%= @pet_history.description %>
+</p>
+
+
+<div>
+  <%= link_to "Editar", edit_pet_history_path(@pet_history) %> |
+  <%= link_to "Volver", pet_histories_path %>
+
+  <%= button_to "Eliminar", @pet_history, method: :delete, data: { confirm: 'Está seguro?' } %>
+</div>

@@ -1,0 +1,41 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Mascotas</h1>
+
+<table class="table table-hover table-bordered">
+  <thead class="text-center">
+    <tr class="bg-primary text-white">
+      <th>Nombre</th>
+      <th>Raza</th>
+      <th>Fecha de Nacimiento</th>
+      <th>Dueño</th>
+      <th>Visitas</th>
+      <th>Registro de Visitas</th>
+
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody class="text-center">
+    <% @pets.each do |pet| %>
+      <tr>
+      <td><%= link_to pet.name, pet %></td>
+        <td><%= pet.race %></td>
+        <td><%= pet.birthdate %></td>
+        <td><%= pet.client.name%></td>
+        <td><%= pet.history_count%></td>
+        
+        <td>
+        <% pet.pet_histories.each do |history|%>
+          <li> <%= history.created_at%></li>
+
+        <% end %>
+        </td>
+        <td><%= link_to 'Editar', edit_pet_path(pet) %></td>
+        <td><%= link_to 'Eliminar', pet, method: :delete, data: { confirm: 'Está seguro?' } %></td>
+        <td><%= link_to 'Nueva historia', new_pet_history_path(pet)%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
